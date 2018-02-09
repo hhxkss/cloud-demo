@@ -19,8 +19,12 @@ public class UserController {
 
     @RequestMapping(method= RequestMethod.GET)
     Object login(@RequestParam("name") String name, @RequestParam("password") String password) {
-        // 登录鉴权
-        UserEntry entry = userService.login(name, password);
+        UserEntry entry = null;
+        try {
+            entry = userService.login(name, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return entry;
     }
 }
