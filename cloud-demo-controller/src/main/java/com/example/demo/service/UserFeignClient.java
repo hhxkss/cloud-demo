@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * Created by Gary Kuang on 2018/2/23.
  */
-@FeignClient(name="cloud-demo-service")
+@FeignClient(name="cloud-demo-service", fallback = UserFeignClientFallback.class)
 public interface UserFeignClient {
 
     @GetMapping("/user/{name}")
