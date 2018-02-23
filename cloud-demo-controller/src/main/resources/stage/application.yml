@@ -2,9 +2,14 @@ server:
   port: 8080
 
 spring:
-  dubbo:
-    application:
-      name: controller-consumer
-    registry:
-      address: zookeeper://192.168.1.106:2181
-    scan: com.example.demo.controller
+  application:
+    name: cloud-demo-controller
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:7778888@localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    prefer-ip-address: true
